@@ -1,0 +1,54 @@
+<h1 setBackground>This is App Component</h1>
+<div class="container" setBackground appHover>
+  <p>This is a demo HTML content to understand <b>Custom Attribute Directive</b> in Angular</p>
+</div>
+
+<div appHighlight appHover>
+  <p>This is a demo HTML content to understand <b>Custom Attribute Directive</b> in Angular</p>
+</div>
+<!--setBackground-->               <!--Custom Attribute Directive-->
+
+
+
+
+<!--Host Binding and Binding Directive props-->
+<div class="container" [appBetterhighlight]="'red'" [defaultColor]="'yellow'" >
+  <p>This is a demo HTML content to understand @HostBinding in Angular</p>
+</div>
+
+<!--appClass Directive-->
+<div [appClass]="{container: true, 'change-font': true}">
+  <p>This is a demo HTML content to understand how to create custom ngClass directive in Angular.</p>
+</div>
+
+<!--appStyle Directive-->
+<div class="container" [appStyle]="{backgroundColor: active ? 'Green':'Aqua', color:'brown', fontWeight: 'bold'}">
+  <p>This is a demo HTML content to understand how to create custom ngStyle directive in Angular.</p>
+</div>
+
+<!--Structural Directive-->
+<button class="btn btn-notice" (click)="displayNotice()">Show Notice</button>
+<!--<div class="info-container notice" *ngIf="display; else myVar">
+  <h3>This is important notice</h3>
+  <p>This is a notice issued for all website users.</p>
+</div>
+<ng-template #myVar>
+  <p>This is an example paragraph</p>
+</ng-template>-->
+
+<!--custom structural directive-->
+<div class="info-container notice" *appIf="display">
+  <h3>This is important notice</h3>
+  <p>This is a notice issued for all website users.</p>
+</div>
+
+<p *appIf="10>5">This is a new paragraph</p>
+
+
+<!--ngSwitch Directive-->
+<div class="container" [ngSwitch]="occupation">
+  <p *ngSwitchCase="'teacher'">This paragraph will be displayed when occupation is teacher.</p>
+  <p *ngSwitchCase="'designer'">This paragraph will be displayed when occupation is designer.</p>
+  <p *ngSwitchCase="'lawyer'">This paragraph will be displayed when occupation is lawyer.</p>
+  <p *ngSwitchDefault>This paragraph will be displayed when occupation if no case matches switch expressions.</p>
+</div>

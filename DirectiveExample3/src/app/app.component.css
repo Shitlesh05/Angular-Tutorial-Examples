@@ -1,0 +1,21 @@
+.highlight{
+    background-color: #ddd;
+    border: #ff5722 3px solid;
+    border-radius: 5px;
+}
+
+i{
+    font-size: 16 px;
+    margin: 10px;
+    color:#ff5722;
+}
+
+.video-data{
+    margin: 5px;
+    font-size: 14px;
+}
+
+.details{
+    display: flex;
+    margin: 10px 5px;
+}

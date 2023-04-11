@@ -1,0 +1,45 @@
+<div class="container">
+  <div>
+    <input type="text" placeholder="Search By Gender" 
+    style="width:450px; padding: 2px 20px; margin: 10px 0px; height: 30px;" [(ngModel)]="filterText"/>
+  </div>
+  <div>
+    <h3>Total Students : {{totalStudents | async}} </h3>
+  </div>
+  <table id="student" (mousemove)="onMouseMove()">
+    <tr>
+      <th>Name</th>&nbsp;
+      <th>Courses</th>&nbsp;
+      <th>Marks</th>&nbsp;
+      <th>Percentage</th>&nbsp;
+      <th>DOB</th>&nbsp;
+      <th>Gender</th>&nbsp;
+    </tr>
+    <!-- using pipes-->
+    <!-- <tr *ngFor="let std of students | filter: filterText">
+      <td>{{std.name}}</td>&nbsp;
+      <td>{{std.course}}</td>&nbsp;
+      <td><input type="number" value="std.marks" [(ngModel)]="std.marks"></td>&nbsp; pure pipe eg
+       <td>{{(std.marks / totalMarks) | percent:'1.2-2'}}</td>&nbsp; 
+       <td>{{(std.marks / totalMarks) | currency : 'INR'}}</td>&nbsp; 
+      <td> {{std.marks | percentage : totalMarks : 2}}</td>&nbsp;     custom pipe
+      <td>{{std.DOB | date:'fullDate' | uppercase}}</td>&nbsp;
+      <td>{{std.gender | lowercase}}</td>&nbsp;
+    </tr> -->
+
+    <!-- using filtering on components-->
+    <tr *ngFor="let std of filteredStudents" >
+      <td>{{std.name}}</td>&nbsp;
+      <td>{{std.course}}</td>&nbsp;
+      <td><input type="number" value="std.marks" [(ngModel)]="std.marks"></td>&nbsp; <!--pure pipe ex-->
+      <!-- <td>{{(std.marks / totalMarks) | percent:'1.2-2'}}</td>&nbsp; -->
+      <!-- <td>{{(std.marks / totalMarks) | currency : 'INR'}}</td>&nbsp; -->
+      <td> {{std.marks | percentage : totalMarks : 2}}</td>&nbsp;     <!--custom pipe-->
+      <td>{{std.DOB | date:'fullDate' | uppercase}}</td>&nbsp;
+      <td>{{std.gender | lowercase}}</td>&nbsp;
+    </tr>
+  </table>
+  <br><br>
+  <button (click)="addDummyStudent()">Add Student</button>
+  <button (click)="changeGender()">Change Gender</button>
+</div>
